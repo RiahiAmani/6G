@@ -20,3 +20,10 @@
 
 Format : CSV, séparateur `,`, encodage UTF-8, point décimal, une ligne par (timestamp, ue_id).
 Fréquence d'échantillonnage : 1 s.
+## Colonnes ajoutées au traitement
+- `*_norm` : version z-score des variables numériques
+- `label_id` : 0 = normal, 1 = congestion, 2 = anomaly
+
+## Provenance
+Dataset v1 : synthétique (graine 42), 30 UE, 600 s, 3 cellules.
+Sera enrichi avec des traces SUMO (V2X) et ns-3 sans changer les colonnes.
