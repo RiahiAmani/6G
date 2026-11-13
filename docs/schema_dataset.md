@@ -33,3 +33,9 @@ Sera enrichi avec des traces SUMO (V2X) et ns-3 sans changer les colonnes.
 - label : congestion si load_pct >= 85 %. Pas de label anomaly dans ce fichier.
 - Capacité fixée à 20 UE/cellule (4 cellules) pour obtenir ~6 % de congestion : choix de modélisation.
 - Limite : chaque véhicule traverse la grille en peu de temps (138 handovers pour 150 UE).
+## Dataset NTN (dataset_6g_ntn.csv)
+- Issus de Skyfield/SGP4 : cell_id (satellite servant = le plus proche, élévation >= 25°), handover (changement de satellite), délai de propagation.
+- Modélisés (hypothèses) : débit, gigue, charge, traitement de 15 ms ajouté à la latence.
+- Les 10 UE sont fixes et identiques (même position), donc leurs lignes ne sont pas indépendantes : seul le bruit modélisé les distingue.
+- label = anomaly uniquement quand aucun satellite n'est visible (coupure). Ce n'est pas une anomalie injectée.
+- Limite : sélection du satellite le plus proche à chaque pas de 30 s, sans coût de bascule ni signalisation. À 30 s de pas, des handovers entre deux pas peuvent être manqués.
