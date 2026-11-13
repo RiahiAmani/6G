@@ -5,3 +5,4 @@ __pycache__/
 data/raw/*.csv
 sumo/fcd.xml
 sumo/runs/*.fcd.xml
+data/processed/anomaly_scores.jsonl
