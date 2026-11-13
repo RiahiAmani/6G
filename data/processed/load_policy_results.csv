@@ -1,0 +1,5 @@
+politique,secondes_congestion,secondes_capacite_ajoutee,congestion_evitee_%
+aucune action,736,0,0.0
+réactive (persistance),316,985,57.1
+prédictive (tendance),197,1425,73.2
+prédictive (random forest),281,1081,61.8
