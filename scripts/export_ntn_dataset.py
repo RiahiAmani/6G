@@ -39,7 +39,7 @@ rows = []
 for u in range(N_UE):
     ue_id = f"rural_{u+1:02d}"
     n = len(t)
-    lat_ms = 4 * delay + rng.normal(15, 2, n)        # RTT propagation + traitement supposé 15 ms
+    lat_ms = np.where(cov, 4 * delay + rng.normal(15, 2, n), 1000.0)   # 1000 ms = timeout si pas de couverture
     rows.append(pd.DataFrame(dict(
         timestamp=np.arange(n) * float(STEP), ue_id=ue_id, ue_type="mmtc", slice="mmtc",
         cell_id=serving, x=0.0, y=0.0, speed=0.0,

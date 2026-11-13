@@ -39,3 +39,5 @@ Sera enrichi avec des traces SUMO (V2X) et ns-3 sans changer les colonnes.
 - Les 10 UE sont fixes et identiques (même position), donc leurs lignes ne sont pas indépendantes : seul le bruit modélisé les distingue.
 - label = anomaly uniquement quand aucun satellite n'est visible (coupure). Ce n'est pas une anomalie injectée.
 - Limite : sélection du satellite le plus proche à chaque pas de 30 s, sans coût de bascule ni signalisation. À 30 s de pas, des handovers entre deux pas peuvent être manqués.
+- latency_ms = 1000 ms (timeout conventionnel, pas une mesure) quand aucun satellite n'est visible.
+- Ces lignes sont aussi étiquetées `anomaly` et ont loss_pct = 100 et throughput = 0.
