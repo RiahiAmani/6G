@@ -27,3 +27,9 @@ Fréquence d'échantillonnage : 1 s.
 ## Provenance
 Dataset v1 : synthétique (graine 42), 30 UE, 600 s, 3 cellules.
 Sera enrichi avec des traces SUMO (V2X) et ns-3 sans changer les colonnes.
+## Dataset mobilité SUMO (dataset_6g_mobility.csv)
+- Issus de SUMO : timestamp, ue_id, x, y, speed ; calculés à partir des positions : cell_id, handover, load_pct.
+- Modélisés (hypothèses, pas des mesures) : throughput, latency, jitter, loss (formules dépendant de la charge).
+- label : congestion si load_pct >= 85 %. Pas de label anomaly dans ce fichier.
+- Capacité fixée à 20 UE/cellule (4 cellules) pour obtenir ~6 % de congestion : choix de modélisation.
+- Limite : chaque véhicule traverse la grille en peu de temps (138 handovers pour 150 UE).
