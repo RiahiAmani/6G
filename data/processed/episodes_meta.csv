@@ -1,0 +1,11 @@
+episode_id,type,cell,t_start,t_end,duree_s,intensite,n_lignes
+0,congestion,cell_3,6,33,28,-,463
+1,congestion,cell_1,55,88,34,-,196
+2,congestion,cell_2,134,161,28,-,190
+3,attaque,cell_2,177,189,13,forte,87
+4,attaque,cell_1,195,206,12,moyenne,98
+5,attaque,cell_3,228,247,20,moyenne,306
+6,attaque,cell_1,272,286,15,forte,120
+7,attaque,cell_1,313,332,20,faible,160
+8,attaque,cell_2,370,387,18,faible,54
+9,congestion,cell_1,418,439,22,-,171

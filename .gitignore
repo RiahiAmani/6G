@@ -6,3 +6,5 @@ data/raw/*.csv
 sumo/fcd.xml
 sumo/runs/*.fcd.xml
 data/processed/anomaly_scores.jsonl
+data/processed/dataset_6g_episodes.csv
+data/processed/episodes_rows.csv
