@@ -1,0 +1,17 @@
+flowchart LR
+  UE["UE UERANSIM<br/>eMBB / URLLC / mMTC"] -->|"Uu simulé"| GNB["gNB (VM-RAN)"]
+  GNB -->|"N2 SCTP"| AMF
+  GNB -->|"N3 GTP-U"| UPF
+  subgraph VMCP["VM-CP : conteneurs Docker"]
+    AMF --> SMF
+    NRF
+    NSSF
+    UDM
+    PCF
+    MONGO[("MongoDB")]
+  end
+  SMF -->|"N4 PFCP"| UPF
+  subgraph VMUPF["VM-UPF : conteneur Docker"]
+    UPF
+  end
+  UPF -->|"N6"| K[("kind : Edge / Fog / Cloud")]
