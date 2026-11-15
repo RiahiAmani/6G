@@ -3,3 +3,4 @@ log/
 a3-core-ran/conf/tls/
 a3-core-ran/conf/hnet/
 a3-core-ran/conf/*.orig
+a3-core-ran/ran/*.orig
