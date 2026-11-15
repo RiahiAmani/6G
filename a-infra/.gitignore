@@ -1,2 +1,5 @@
 log/
 *.pcap
+a3-core-ran/conf/tls/
+a3-core-ran/conf/hnet/
+a3-core-ran/conf/*.orig
