@@ -1,0 +1,25 @@
+x-o5gs: &o5gs
+  image: open5gs:local
+  network_mode: host
+  restart: unless-stopped
+  volumes: ["./conf:/etc/open5gs", "./log:/var/log/open5gs"]
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    network_mode: host
+    restart: unless-stopped
+    command: ["mongod", "--bind_ip", "127.0.0.1"]
+    environment: { GLIBC_TUNABLES: "glibc.pthread.rseq=1" }
+    volumes: ["mongo-data:/data/db"]
+  nrf:  { <<: *o5gs, container_name: nrf,  command: open5gs-nrfd  -c /etc/open5gs/nrf.yaml }
+  scp:  { <<: *o5gs, container_name: scp,  command: open5gs-scpd  -c /etc/open5gs/scp.yaml }
+  ausf: { <<: *o5gs, container_name: ausf, command: open5gs-ausfd -c /etc/open5gs/ausf.yaml }
+  udm:  { <<: *o5gs, container_name: udm,  command: open5gs-udmd  -c /etc/open5gs/udm.yaml }
+  udr:  { <<: *o5gs, container_name: udr,  command: open5gs-udrd  -c /etc/open5gs/udr.yaml }
+  pcf:  { <<: *o5gs, container_name: pcf,  command: open5gs-pcfd  -c /etc/open5gs/pcf.yaml }
+  nssf: { <<: *o5gs, container_name: nssf, command: open5gs-nssfd -c /etc/open5gs/nssf.yaml }
+  bsf:  { <<: *o5gs, container_name: bsf,  command: open5gs-bsfd  -c /etc/open5gs/bsf.yaml }
+  amf:  { <<: *o5gs, container_name: amf,  command: open5gs-amfd  -c /etc/open5gs/amf.yaml }
+  smf:  { <<: *o5gs, container_name: smf,  command: open5gs-smfd  -c /etc/open5gs/smf.yaml }
+volumes: { mongo-data: {} }

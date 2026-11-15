@@ -1,7 +1,7 @@
 upf:
   pfcp:
     server:
-      - address: 192.168.60.10
+      - address: 127.0.0.7
     client:
       smf:
         - address: 127.0.0.4
