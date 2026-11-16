@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: mec-demo }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: mec-demo } }
+  template:
+    metadata: { labels: { app: mec-demo } }
+    spec:
+      containers:
+      - name: app
+        image: mec-app:1.0
+        imagePullPolicy: IfNotPresent
+        ports: [{ containerPort: 8080 }]
+        env:
+        - { name: NODE_NAME, valueFrom: { fieldRef: { fieldPath: spec.nodeName } } }
+        resources: { requests: { cpu: 100m, memory: 64Mi }, limits: { cpu: 500m, memory: 128Mi } }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: mec-demo }
+spec:
+  type: NodePort
+  selector: { app: mec-demo }
+  ports: [{ port: 80, targetPort: 8080, nodePort: 30081 }]
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: { name: mec-demo }
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: mec-demo }
+  minReplicas: 1
+  maxReplicas: 6
+  metrics:
+  - type: Resource
+    resource: { name: cpu, target: { type: Utilization, averageUtilization: 50 } }
