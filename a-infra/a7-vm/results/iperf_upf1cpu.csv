@@ -1,0 +1,7 @@
+label,run,sens,mbps
+upf1cpu,1,up,164.63
+upf1cpu,1,down,164.62
+upf1cpu,2,up,161.52
+upf1cpu,2,down,154.98
+upf1cpu,3,up,152.79
+upf1cpu,3,down,149.68

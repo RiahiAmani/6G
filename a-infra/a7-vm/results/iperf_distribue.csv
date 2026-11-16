@@ -1,0 +1,7 @@
+label,run,sens,mbps
+distribue,1,up,
+distribue,1,down,
+distribue,2,up,
+distribue,2,down,
+distribue,3,up,
+distribue,3,down,
