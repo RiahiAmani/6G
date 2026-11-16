@@ -11,6 +11,9 @@ spec:
       - name: app
         image: mec-app:1.0
         imagePullPolicy: IfNotPresent
+        readinessProbe:
+          httpGet: { path: /, port: 8080 }
+          periodSeconds: 2
         ports: [{ containerPort: 8080 }]
         env:
         - { name: NODE_NAME, valueFrom: { fieldRef: { fieldPath: spec.nodeName } } }
@@ -34,3 +37,6 @@ spec:
   metrics:
   - type: Resource
     resource: { name: cpu, target: { type: Utilization, averageUtilization: 50 } }
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
