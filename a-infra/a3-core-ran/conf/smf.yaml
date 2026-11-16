@@ -20,10 +20,10 @@ smf:
         - uri: http://127.0.0.200:7777
   pfcp:
     server:
-      - address: 127.0.0.4
+      - address: 192.168.60.10
     client:
       upf:
-        - address: 127.0.0.7
+        - address: 192.168.60.11
   gtpc:
     server:
       - address: 127.0.0.4
