@@ -1,0 +1,10 @@
+services:
+  upf:
+    image: open5gs:local
+    container_name: upf
+    network_mode: host
+    restart: unless-stopped
+    cap_add: [NET_ADMIN]
+    devices: ["/dev/net/tun:/dev/net/tun"]
+    command: open5gs-upfd -c /etc/open5gs/upf.yaml
+    volumes: ["./conf:/etc/open5gs", "./log:/var/log/open5gs"]

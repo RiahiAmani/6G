@@ -1,0 +1,13 @@
+upf:
+  pfcp:
+    server:
+      - address: 192.168.60.11
+    client:
+      smf:
+        - address: 192.168.60.10
+  gtpu:
+    server:
+      - address: 192.168.60.11
+  session:
+    - subnet: 10.45.0.0/16
+      gateway: 10.45.0.1
