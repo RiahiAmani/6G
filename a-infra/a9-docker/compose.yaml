@@ -1,0 +1,22 @@
+services:
+  mec-app:
+    image: mec-app:1.0
+    build: ../images/mec-app
+    container_name: mec-app
+    restart: unless-stopped
+    ports: ["8080:8080"]
+    environment: { NODE_NAME: compose, TIER: local }
+    cpus: 0.5
+    mem_limit: 128m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://127.0.0.1:8080/')"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+  iperf-server:
+    image: networkstatic/iperf3
+    container_name: iperf-server
+    restart: unless-stopped
+    command: -s
+    ports: ["5201:5201"]
