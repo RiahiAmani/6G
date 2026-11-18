@@ -1,0 +1,13 @@
+via,run,sens,mbps,retrans
+ue,1,up,178.74,275
+ue,1,down,190.14,285
+ue,2,up,169.27,248
+ue,2,down,176.57,233
+ue,3,up,169.8,318
+ue,3,down,179.72,286
+direct,1,up,168.58,134
+direct,1,down,42.99,243
+direct,2,up,798.01,201
+direct,2,down,101.35,269
+direct,3,up,66.22,231
+direct,3,down,64.08,733
