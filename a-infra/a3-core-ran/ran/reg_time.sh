@@ -7,7 +7,7 @@ for i in $(seq 1 $RUNS); do
   docker rm -f ue1 >/dev/null 2>&1; sleep 2
   t0=$(date +%s.%N)
   docker run -d --name ue1 --network host --privileged \
-    -v $PWD/ue.yaml:/ueransim/config/ue.yaml:ro ueransim:local ./build/nr-ue -c config/ue.yaml >/dev/null
+    -v $PWD/ue.yaml:/ueransim/config/ue.yaml:ro ${IMG:-ueransim:local} ./build/nr-ue -c config/ue.yaml >/dev/null
   until ip link show uesimtun0 >/dev/null 2>&1; do sleep 0.05; done
   t1=$(date +%s.%N)
   awk -v i=$i -v a=$t0 -v b=$t1 'BEGIN{printf "%d,%.3f\n", i, b-a}' | tee -a reg_times.csv
