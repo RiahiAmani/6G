@@ -1,0 +1,1 @@
+timestamp,service,from_tier,to_tier,edge_load,fog_load,cloud_load,own_cpu_m

@@ -1,0 +1,3 @@
+timestamp,service,from_tier,to_tier,edge_load,fog_load,cloud_load,own_cpu_m
+1795113684,urllc,edge,fog,0.989,0.001,0.001,989
+1795113715,embb,fog,edge,0.000,0.714,0.003,6
